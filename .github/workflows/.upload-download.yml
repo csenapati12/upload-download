@@ -72,13 +72,10 @@ jobs:
       - name: Simulate deployment
         run: |
           echo "Starting deployment..."
-          echo "Listing files in the workspace to verify download:"
-          
+          echo "Listing files in the workspace to verify download:"          
           ls -la
-          tar -xvzf apache-maven-3.9.11-bin.tar.gz
-         # rm -rf apache-maven-3.9.11-bin.tar.gz
-          ls -R
-          
+          tar -xvzf apache-maven-3.9.11-bin.tar.gz       
+          ls -la
           echo "---"
           echo "Displaying content of version.txt:"
           cat version.txt

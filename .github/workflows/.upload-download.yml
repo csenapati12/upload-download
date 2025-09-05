@@ -74,7 +74,7 @@ jobs:
           echo "Starting deployment..."
           echo "Listing files in the workspace to verify download:"          
           ls -la       
-          gzip -t apache-maven-3.9.11-bin.tar.gz
+          tar -xzvf apache-maven-3.9.11-bin.tar.gz
           ls -la
           echo "---"
           echo "Displaying content of version.txt:"

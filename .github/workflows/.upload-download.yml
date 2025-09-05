@@ -29,6 +29,7 @@ jobs:
         run: |
           echo "Starting the build process..."
           mkdir -p dist
+          wget https://dlcdn.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz > dist
           echo "<h1>My Awesome App</h1>" > dist/index.html
           echo "Build version: ${{ github.sha }}" > dist/version.txt
           echo "Build process complete. Files are in the 'dist' directory."
@@ -72,6 +73,7 @@ jobs:
         run: |
           echo "Starting deployment..."
           echo "Listing files in the workspace to verify download:"
+          ls -la
           ls -R
           echo "---"
           echo "Displaying content of version.txt:"

@@ -73,9 +73,10 @@ jobs:
         run: |
           echo "Starting deployment..."
           echo "Listing files in the workspace to verify download:"
-          tar -xvzf apache-maven-3.9.11-bin.tar.gz
+          
           ls -la
-          rm -rf apache-maven-3.9.11-bin.tar.gz
+          tar -xvzf apache-maven-3.9.11-bin.tar.gz
+         # rm -rf apache-maven-3.9.11-bin.tar.gz
           ls -R
           
           echo "---"

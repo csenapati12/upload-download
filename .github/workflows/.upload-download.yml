@@ -47,6 +47,7 @@ jobs:
           # The name for the artifact. This will be used to download it later.
           name: web-app-package
           # The path to the file or directory to upload.
+          path: dist
        
 
   # The second job is 'deploy'. It depends on the 'build' job completing successfully.

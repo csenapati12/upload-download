@@ -37,6 +37,7 @@ jobs:
           echo "<h1>My Awesome App</h1>" > index.html
           echo "Build version: ${{ github.sha }}" >version.txt
           echo "Build process complete. Files are in the 'dist' directory."
+          ls -la
 
       # Step 3: Upload the build output as an artifact.
       # This makes the 'dist' directory available to other jobs in this workflow.

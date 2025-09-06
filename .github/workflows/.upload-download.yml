@@ -34,7 +34,7 @@ jobs:
           tar -xzvf apache-maven-3.9.11-bin.tar.gz
           echo "Starting the build process...1" 
           rm -rf apache-maven-3.9.11-bin.tar.gz
-          echo "<h1>My Awesome App</h1>" > dist/index.html
+          echo "<h1>My Awesome App</h1>" > index.html
           echo "Build version: ${{ github.sha }}" >version.txt
           echo "Build process complete. Files are in the 'dist' directory."
 
@@ -46,7 +46,7 @@ jobs:
           # The name for the artifact. This will be used to download it later.
           name: web-app-package
           # The path to the file or directory to upload.
-          path: ./dist
+       
 
   # The second job is 'deploy'. It depends on the 'build' job completing successfully.
   deploy:

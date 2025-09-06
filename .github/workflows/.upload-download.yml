@@ -28,7 +28,7 @@ jobs:
       - name: Simulate build process
         run: |
           echo "Starting the build process..."          
-          wget https://dlcdn.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz .
+          wget https://dlcdn.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz
           tar -xzvf dist/apache-maven-3.9.11-bin.tar.gz
           ls -la
           rm -rf apache-maven-3.9.11-bin.tar.gz

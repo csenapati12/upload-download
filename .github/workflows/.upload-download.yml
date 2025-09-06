@@ -27,11 +27,10 @@ jobs:
       # Here, we're just creating a 'dist' directory with some output files.
       - name: Simulate build process
         run: |
-          echo "Starting the build process..."
-          mkdir -p dist
-          wget https://dlcdn.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz -O dist/apache-maven-3.9.11-bin.tar.gz
-          tar -xzvf dist/apache-maven-3.9.11-bin.tar.gz -C dist
-          rm -rf dist/apache-maven-3.9.11-bin.tar.gz
+          echo "Starting the build process..."          
+          wget https://dlcdn.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz .
+          tar -xzvf dist/apache-maven-3.9.11-bin.tar.gz
+          rm -rf apache-maven-3.9.11-bin.tar.gz
           echo "<h1>My Awesome App</h1>" > dist/index.html
           echo "Build version: ${{ github.sha }}" > dist/version.txt
           echo "Build process complete. Files are in the 'dist' directory."

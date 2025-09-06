@@ -29,8 +29,10 @@ jobs:
         run: |
           echo "Starting the build process..."          
           wget https://dlcdn.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz
-          tar -xzvf dist/apache-maven-3.9.11-bin.tar.gz
           ls -la
+          pwd
+          tar -xzvf dist/apache-maven-3.9.11-bin.tar.gz
+          echo "Starting the build process...1" 
           rm -rf apache-maven-3.9.11-bin.tar.gz
           echo "<h1>My Awesome App</h1>" > dist/index.html
           echo "Build version: ${{ github.sha }}" >version.txt

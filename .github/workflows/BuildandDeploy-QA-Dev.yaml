@@ -39,7 +39,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: tar
-          path: dist
+          path: dist/*.tar.gz
 
       - name: Simulate build process
         run: |

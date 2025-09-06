@@ -54,6 +54,7 @@ jobs:
 
   deploy-qadev2:
     name: Deploy to QA Dev 2
+    needs: build-and-bar
     runs-on: ubuntu-latest
     steps:
       - name: Download tar Tools as workflow artifact

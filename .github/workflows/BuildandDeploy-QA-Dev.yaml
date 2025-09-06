@@ -31,6 +31,9 @@ jobs:
         run: |
           mkdir -p dist
           wget https://dlcdn.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz -O dist/apache-maven-3.9.11-bin.tar.gz
+          wget https://archive.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz -O dist/apache-maven-3.5.4-bin.tar.gz
+          wget https://archive.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.zip  -O dist/apache-maven-3.5.4-bin.zip
+          wget https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.9.9/apache-maven-3.9.9-bin.tar.gz -O dist/apache-maven-3.9.9-bin.tar.gz
 
       - name: Upload tar Tools as workflow artifact
         uses: actions/upload-artifact@v4

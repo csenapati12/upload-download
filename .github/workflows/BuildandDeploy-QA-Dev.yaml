@@ -1,0 +1,72 @@
+name: Build and Deploy-QA-Dev
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to. Select "none" to only run the build job.'
+        required: true
+        type: choice
+        options:
+          - none
+          - qadev
+          - qadev2
+        default: 'none'
+      ace_version:
+        description: 'ACE version to be used for build and deployment'
+        required: true
+        default: '12.0.12.7'
+
+env:
+  LC_ALL: en_US.UTF-8
+  LANG: en_US.UTF-8
+  LANGUAGE: en_US.UTF-8
+
+jobs:
+  build-and-bar:
+    name: Build ACE Tools and BAR files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifacts for maven
+        run: |
+          mkdir -p dist
+          wget https://dlcdn.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz -O dist/apache-maven-3.9.11-bin.tar.gz
+
+      - name: Upload tar Tools as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tar
+          path: dist
+
+      - name: Simulate build process
+        run: |
+          echo "Starting the build process..."
+          mkdir -p dist1
+          echo "<h1>My Awesome App</h1>" > dist1/index.html
+          echo "Build version: ${{ github.sha }}" > dist1/version.txt
+          echo "Build process complete. Files are in the 'dist1' directory."
+
+      - name: Upload Actual files as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: actual
+          path: dist1
+
+  deploy-qadev2:
+    name: Deploy to QA Dev 2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download tar Tools as workflow artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: tar
+
+      - name: Download Actual files as workflow artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: actual
+
+      - name: files details
+        run: |
+          pwd
+          ls -la
